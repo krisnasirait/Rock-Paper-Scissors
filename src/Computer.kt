@@ -1,2 +1,11 @@
-class Computer {
+import kotlin.random.Random
+
+class Computer(userOption: String) {
+    fun getRandomChoice(): String {
+        val options = arrayOf("Rock", "Paper", "Scissors")
+
+        val botOptions: Int = Random.nextInt(options.size)
+
+        return options[botOptions]
+    }
 }

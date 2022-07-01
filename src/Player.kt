@@ -1,29 +1,9 @@
-class Player {
-    private lateinit var choice: String
+interface Player {
 
-    fun getChoice() {
-
-        print("1. Rock \n2. Paper \n3. Scissors\nChoose : ")
-
-        //error handling number exception
-        try {
-            var choosen = readln().toInt()
-            when (choosen) {
-                1 -> setChoice("Rock")
-                2 -> setChoice("Paper")
-                3 -> setChoice("Scissors")
-            }
-        } catch (e: NumberFormatException) {
-            println("\nPlease input the correct option\n")
-        }
-
-
-    }
-
-    fun setChoice(userChoice: String?): String {
-        if (userChoice != null) {
-            choice = userChoice
-        }
-        return choice
+    //menu banner to show the game banner
+    fun menuBanner() {
+        println("=========================")
+        println("==Rock--Paper--Scissors==")
+        println("=========================")
     }
 }

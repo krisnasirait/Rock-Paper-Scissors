@@ -1,43 +1,30 @@
-class Game {
+ class Game : Player {
 
 
     private var isFirst: Boolean = true
-    private var isRunning: Boolean = false
-    private lateinit var nameUser: String
+     private lateinit var userName: String
 
-    //menu banner to show the game banner
-    private fun menuBanner() {
-        println("=========================")
-        println("==Rock--Paper--Scissors==")
-        println("=========================")
-    }
-
-
-    //to received the user name input
-    fun startGame(): String {
+    //to receive the user name input
+    fun startGame() {
         while (isFirst) {
 
             isFirst = false
+
             menuBanner()
 
             //read user name input
             print("\nInput your name : ")
-            nameUser = readln()
+            userName = readln()
 
             //error handling input contain spaces (" ")
-            if (nameUser.contains(" ")) {
+            if (userName.contains(" ")) {
                 println("\nPlease input without spaces")
                 startGame()
             }
         }
 
-        isRunning = true
-
-        while (isRunning) {
-            val player = Player()
-            player.getChoice()
-        }
-
-        return nameUser
+        val user = User()
+        user.getUserChoice()
     }
-}
+
+ }
