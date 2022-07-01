@@ -1,3 +1,5 @@
+import Result
+
 open class Game : Player {
 
 
@@ -18,12 +20,15 @@ open class Game : Player {
             //error handling input contain spaces (" ")
             if (userName.contains(" ")) {
                 println("\nPlease input without spaces")
-                startGame()
             }
         }
 
         val user = User()
-        user.getUserChoice()
+        val result = Result()
+        val computer = Computer()
+
+
+        result.showResult(user.getUserChoice(), computer.getRandomChoice(), "Test")
     }
 
 }

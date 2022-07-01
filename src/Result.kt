@@ -1,22 +1,29 @@
-class Result() : Game() {
+class Result : Game() {
 
     fun getResult(userChoice: String, botChoice: String, userName: String): String {
 
         val game = Game()
         val choices = arrayOf("Rock", "Paper", "Scissors")
 
-        if (userChoice == choices[0] && botChoice == choices[0] || userChoice == choices[1] && botChoice == choices[1] || userChoice == choices[2] && botChoice == choices[2]) {
+//        if (userChoice == choices[0] && botChoice == choices[0] || userChoice == choices[1] && botChoice == choices[1] || userChoice == choices[2] && botChoice == choices[2]) {
+//
+//            return "DRAW"
+//
+//        } else if (userChoice == choices[0] && botChoice == choices[3] || userChoice == choices[1] && botChoice == choices[0] || userChoice == choices[2] && botChoice == choices[2]) {
+//
+//            return "$userName WIN"
+//
+//        } else if (userChoice == choices[0] && botChoice == choices[1] || userChoice == choices[1] && botChoice == choices[2] || userChoice == choices[2] && botChoice == choices[0]) {
+//
+//            return "Bot WIN"
+//        }
 
+        if(userChoice == "Batu" && botChoice == "Batu"){
             return "DRAW"
-
-        } else if (userChoice == choices[0] && botChoice == choices[3] || userChoice == choices[1] && botChoice == choices[0] || userChoice == choices[2] && botChoice == choices[2]) {
-
-            return "$userName WIN"
-
-        } else if (userChoice == choices[0] && botChoice == choices[1] || userChoice == choices[1] && botChoice == choices[2] || userChoice == choices[2] && botChoice == choices[0]) {
-
-            return "Bot WIN"
+        }else{
+            return "DRAW"
         }
+
 
         throw IllegalArgumentException("Can't declare the result")
     }

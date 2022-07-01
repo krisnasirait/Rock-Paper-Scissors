@@ -1,6 +1,6 @@
 class User {
 
-    fun getUserChoice(){
+    fun getUserChoice(): String{
 
         val computer = Computer()
 
@@ -9,10 +9,13 @@ class User {
         //error handling number exception
         try {
             var choosen = readln()
-            computer.getRandomChoice(choosen)
+            computer.getRandomChoice()
+            return choosen
 
         } catch (e: NumberFormatException) {
             println("\nPlease input the correct option\n")
         }
+
+        throw IllegalArgumentException("Please input the correct option")
     }
 }
