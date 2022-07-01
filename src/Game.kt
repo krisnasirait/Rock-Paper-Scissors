@@ -1,7 +1,8 @@
 class Game {
 
-    private var isRunning: Boolean = false
+
     private var isFirst: Boolean = true
+    private var isRunning: Boolean = false
     private lateinit var nameUser: String
 
     //menu banner to show the game banner
