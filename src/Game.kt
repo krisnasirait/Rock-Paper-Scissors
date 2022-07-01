@@ -1,8 +1,7 @@
- class Game : Player {
+open class Game : Player {
 
 
     private var isFirst: Boolean = true
-     private lateinit var userName: String
 
     //to receive the user name input
     fun startGame() {
@@ -14,7 +13,7 @@
 
             //read user name input
             print("\nInput your name : ")
-            userName = readln()
+            var userName = readln()
 
             //error handling input contain spaces (" ")
             if (userName.contains(" ")) {
@@ -27,4 +26,4 @@
         user.getUserChoice()
     }
 
- }
+}
