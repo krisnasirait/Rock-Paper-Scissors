@@ -1,6 +1,6 @@
 class User {
 
-    fun getUserChoice(): String{
+    fun getUserChoice(): String {
 
         val computer = Computer()
 

@@ -1,34 +1,28 @@
-import Result
 
-open class Game : Player {
+abstract class Game : Player {
 
 
     private var isFirst: Boolean = true
+    var nameUser: String = ""
 
     //to receive the user name input
-    fun startGame() {
-        while (isFirst) {
+    fun startGame(): String {
+        if (isFirst) {
 
             isFirst = false
 
-            menuBanner()
-
             //read user name input
             print("\nInput your name : ")
-            var userName = readln()
+            val userName = readln()
+            nameUser = userName
 
             //error handling input contain spaces (" ")
             if (userName.contains(" ")) {
                 println("\nPlease input without spaces")
             }
+
         }
-
-        val user = User()
-        val result = Result()
-        val computer = Computer()
-
-
-        result.showResult(user.getUserChoice(), computer.getRandomChoice(), "Test")
+        return nameUser
     }
 
 }
