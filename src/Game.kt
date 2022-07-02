@@ -1,17 +1,14 @@
-import Result
 
-open class Game : Player {
+abstract class Game : Player {
 
 
     private var isFirst: Boolean = true
 
     //to receive the user name input
-    fun startGame() {
+    fun startGame(): String {
         while (isFirst) {
 
             isFirst = false
-
-            menuBanner()
 
             //read user name input
             print("\nInput your name : ")
@@ -21,14 +18,11 @@ open class Game : Player {
             if (userName.contains(" ")) {
                 println("\nPlease input without spaces")
             }
+
+            return userName
         }
 
-        val user = User()
-        val result = Result()
-        val computer = Computer()
-
-
-        result.showResult(user.getUserChoice(), computer.getRandomChoice(), "Test")
+        throw IllegalArgumentException("Username not passed")
     }
 
 }
