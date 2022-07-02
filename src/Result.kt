@@ -10,18 +10,15 @@ class Result {
 
         if (userChoice == choices[0] && botChoice == choices[0] || userChoice == choices[1] && botChoice == choices[1] || userChoice == choices[2] && botChoice == choices[2]) {
 
-            println("Bot : " + botChoice)
             return "DRAW"
 
         } else if (userChoice == choices[0] && botChoice == choices[2] || userChoice == choices[1] && botChoice == choices[0] || userChoice == choices[2] && botChoice == choices[2]) {
 
-            println("Bot : " + botChoice)
             userPoints++
             return "$userName WIN"
 
         } else if (userChoice == choices[0] && botChoice == choices[1] || userChoice == choices[1] && botChoice == choices[2] || userChoice == choices[2] && botChoice == choices[0]) {
 
-            println("Bot : " + botChoice)
             botPoints++
             return "Bot WIN"
         }
@@ -31,10 +28,11 @@ class Result {
     }
 
     fun showResult(userChoice: String, botChoice: String, userName: String) {
+        println("Bot : " + botChoice)
         println("======Result=====")
         println(getResult(userChoice, botChoice, userName))
         println("\n"+ userName + " : " + userPoints.toString())
-        println("\nBot" + " : " + botPoints.toString())
+        println("Bot" + " : " + botPoints.toString())
 
     }
 }
