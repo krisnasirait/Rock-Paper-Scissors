@@ -11,6 +11,7 @@ interface Player {
         println("1. Human vs Human")
         println("2. Human vs Bot")
         println("3. Exit")
+        print("Choose menu : ")
     }
 
     fun playAgain()
