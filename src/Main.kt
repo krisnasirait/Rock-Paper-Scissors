@@ -103,9 +103,6 @@ class GameFlow : Game() {
             gameFlow()
 
         }
-
-        throw IllegalArgumentException("Return nothing")
-
     }
 
 
