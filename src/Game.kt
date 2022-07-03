@@ -14,7 +14,9 @@ abstract class Game : Player {
 
             //read user name input
             print("\nInput your name : ")
+
             val firstUserName = readln()
+
             nameFirstUser = firstUserName
 
             //error handling input contain spaces (" ")
@@ -27,8 +29,11 @@ abstract class Game : Player {
     }
 
     fun getSecondUser(): String {
+
         print("\nInput your name : ")
+
         val secondUserName = readln()
+
         nameSecondUser = secondUserName
 
         if(nameSecondUser.contains(" ")){

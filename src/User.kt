@@ -1,18 +1,48 @@
 class User {
 
-    fun getUserChoice(): String {
+    fun getFirstUserChoice(vsHuman: Boolean, vsBot: Boolean): String {
 
         val computer = Computer()
 
-        print("Input your choice: ")
+        print("Input your choice : ")
 
         //error handling number exception
         try {
-            var choosen = readln()
-            computer.getRandomChoice()
-            return choosen
+            if (!vsHuman && vsBot) {
+
+                var choosenFirstUser = readln()
+
+                computer.getRandomChoice()
+
+                return choosenFirstUser
+
+            } else if (vsHuman && !vsBot) {
+
+                var choosenFirstUser = readln()
+
+                return choosenFirstUser
+            }
+        } catch (e: NumberFormatException) {
+
+            println("\nPlease input the correct option\n")
+
+        }
+
+        throw IllegalArgumentException("Please input the correct option")
+    }
+
+    fun getSecondUserChoice(): String {
+
+        print("Input your choice (2nd Player) : ")
+
+        try {
+
+            var choosenSecondUser = readln()
+
+            return choosenSecondUser
 
         } catch (e: NumberFormatException) {
+
             println("\nPlease input the correct option\n")
         }
 
