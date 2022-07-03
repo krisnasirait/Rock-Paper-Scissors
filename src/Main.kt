@@ -14,7 +14,9 @@ class GameFlow : Game() {
 
             menuBanner()
             menuOption()
+
             var userChoose = readln().toInt()
+
             userMenuChoose = userChoose
         }
 
@@ -49,9 +51,27 @@ class GameFlow : Game() {
 
         if (playMore == "n" || playMore == "no") {
 
-            println("Thankyou for Playing!")
+            print("Back to main menu?(y/n) ")
+
+            var backToMain = readln().lowercase()
+
+            if (backToMain == "n" || backToMain == "no") {
+
+                println("Thankyou for Playing!")
+
+            } else if (backToMain == "y" || backToMain == "yes") {
+
+                isFirst = true
+
+                gameFlow()
+
+            }
+
 
         } else if (playMore == "y" || playMore == "yes") {
+
+            isFirst = false
+
             gameFlow()
 
         }
@@ -63,6 +83,8 @@ class GameFlow : Game() {
 
 
 fun main() {
+
     val gameFlow = GameFlow()
     gameFlow.gameFlow()
+
 }
