@@ -1,8 +1,7 @@
 class GameFlow : Game() {
 
     private var isFirst: Boolean = true
-    var vsHuman: Boolean = false
-    var vsBot: Boolean = false
+    private var vsHumanFirst: Boolean = true
     private var userMenuChoose: Int = 0
 
     fun gameFlow() {
@@ -24,15 +23,28 @@ class GameFlow : Game() {
         }
 
 
-
         if (userMenuChoose == 1) {
 
-            result.showResult(
-                getFirstUser(),
-                getSecondUser(),
-                user.getFirstUserChoice(vsHuman = true, vsBot = false),
-                user.getSecondUserChoice()
-            )
+            if (vsHumanFirst) {
+                result.showResult(
+                    getFirstUser(),
+                    getSecondUser(),
+                    user.getFirstUserChoice(vsHuman = true, vsBot = false),
+                    user.getSecondUserChoice()
+                )
+                vsHumanFirst = false
+            } else if (!vsHumanFirst) {
+                val firstUserName = Game.nameFirstUser
+                val secondUserName = Game.nameSecondUser
+
+                result.showResult(
+                    firstUserName,
+                    secondUserName,
+                    user.getFirstUserChoice(vsHuman = true, vsBot = false),
+                    user.getSecondUserChoice()
+                )
+            }
+
             playAgain()
 
 
@@ -40,7 +52,7 @@ class GameFlow : Game() {
 
             result.showResult(
                 getFirstUser(),
-                user.getFirstUserChoice(vsHuman = true, vsBot = false),
+                user.getFirstUserChoice(vsHuman = false, vsBot = true),
                 computer.getRandomChoice()
             )
             playAgain()
@@ -78,21 +90,19 @@ class GameFlow : Game() {
 
             } else if (backToMain == "y" || backToMain == "yes") {
 
-                isFirst = true
 
                 gameFlow()
+
 
             }
 
 
         } else if (playMore == "y" || playMore == "yes") {
 
-            isFirst = false
 
             gameFlow()
 
         }
-
     }
 
 

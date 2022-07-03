@@ -1,10 +1,13 @@
 
 abstract class Game : Player {
 
-
     private var isFirst: Boolean = true
-    var nameFirstUser: String = ""
-    var nameSecondUser: String = ""
+
+    companion object{
+        var nameFirstUser: String = ""
+        var nameSecondUser: String = ""
+    }
+
 
     //to receive the user name input
     fun getFirstUser(): String {
@@ -42,5 +45,7 @@ abstract class Game : Player {
 
         return nameSecondUser
     }
+
+
 
 }
