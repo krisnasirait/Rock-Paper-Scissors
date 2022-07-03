@@ -14,12 +14,12 @@ class Result {
 
         } else if (userChoice == choices[0] && botChoice == choices[2] || userChoice == choices[1] && botChoice == choices[0] || userChoice == choices[2] && botChoice == choices[1]) {
 
-            firstUserPoints += firstUserPoints
+            firstUserPoints++
             return "$userName WIN"
 
         } else if (userChoice == choices[0] && botChoice == choices[1] || userChoice == choices[1] && botChoice == choices[2] || userChoice == choices[2] && botChoice == choices[0]) {
 
-            botPoints += botPoints
+            botPoints++
             return "Bot WIN"
         }
 
@@ -39,12 +39,12 @@ class Result {
 
         } else if (firstUserChoice == choices[0] && secondUserChoice == choices[2] || firstUserChoice == choices[1] && secondUserChoice == choices[0] || firstUserChoice == choices[2] && secondUserChoice == choices[1]) {
 
-            firstUserPoints += firstUserPoints
+            firstUserPoints++
             return "$firstUserName WIN"
 
         } else if (firstUserChoice == choices[0] && secondUserChoice == choices[1] || firstUserChoice == choices[1] && secondUserChoice == choices[2] || firstUserChoice == choices[2] && secondUserChoice == choices[0]) {
 
-            secondUserPoints == secondUserPoints
+            secondUserPoints++
             return "$secondUserName WIN"
         }
 
