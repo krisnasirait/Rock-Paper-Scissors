@@ -1,7 +1,7 @@
 class GameFlow : Game() {
 
     private var isFirst: Boolean = true
-    var vsHuman: Boolean =  false
+    var vsHuman: Boolean = false
     var vsBot: Boolean = false
     private var userMenuChoose: Int = 0
 
@@ -27,13 +27,22 @@ class GameFlow : Game() {
 
         if (userMenuChoose == 1) {
 
-            result.showResult(getFirstUser(), getSecondUser(), user.getFirstUserChoice(vsHuman = true, vsBot = false), user.getSecondUserChoice())
+            result.showResult(
+                getFirstUser(),
+                getSecondUser(),
+                user.getFirstUserChoice(vsHuman = true, vsBot = false),
+                user.getSecondUserChoice()
+            )
             playAgain()
 
 
         } else if (userMenuChoose == 2) {
 
-            result.showResult(getFirstUser(), user.getFirstUserChoice(vsHuman = true, vsBot = false), computer.getRandomChoice())
+            result.showResult(
+                getFirstUser(),
+                user.getFirstUserChoice(vsHuman = true, vsBot = false),
+                computer.getRandomChoice()
+            )
             playAgain()
 
         } else if (userMenuChoose == 3) {
