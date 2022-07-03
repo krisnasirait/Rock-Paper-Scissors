@@ -1,6 +1,6 @@
 import kotlin.random.Random
 
-class Computer() {
+class Computer {
     fun getRandomChoice(): String {
         val options = arrayOf("Rock", "Paper", "Scissors")
 

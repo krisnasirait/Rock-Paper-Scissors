@@ -17,56 +17,61 @@ class GameFlow : Game() {
             menuBanner()
             menuOption()
 
-            var userChoose = readln().toInt()
+            val userChoose = readln().toInt()
 
             userMenuChoose = userChoose
         }
 
 
-        if (userMenuChoose == 1) {
+        when (userMenuChoose) {
+            1 -> {
 
-            if (vsHumanFirst) {
+                if (vsHumanFirst) {
+                    result.showResult(
+                        getFirstUser(),
+                        getSecondUser(),
+                        user.getFirstUserChoice(vsHuman = true, vsBot = false),
+                        user.getSecondUserChoice()
+                    )
+                    vsHumanFirst = false
+                } else if (!vsHumanFirst) {
+                    val firstUserName = nameFirstUser
+                    val secondUserName = nameSecondUser
+
+                    result.showResult(
+                        firstUserName,
+                        secondUserName,
+                        user.getFirstUserChoice(vsHuman = true, vsBot = false),
+                        user.getSecondUserChoice()
+                    )
+                }
+
+                playAgain()
+
+
+            }
+            2 -> {
+
                 result.showResult(
                     getFirstUser(),
-                    getSecondUser(),
-                    user.getFirstUserChoice(vsHuman = true, vsBot = false),
-                    user.getSecondUserChoice()
+                    user.getFirstUserChoice(vsHuman = false, vsBot = true),
+                    computer.getRandomChoice()
                 )
-                vsHumanFirst = false
-            } else if (!vsHumanFirst) {
-                val firstUserName = Game.nameFirstUser
-                val secondUserName = Game.nameSecondUser
+                playAgain()
 
-                result.showResult(
-                    firstUserName,
-                    secondUserName,
-                    user.getFirstUserChoice(vsHuman = true, vsBot = false),
-                    user.getSecondUserChoice()
-                )
             }
+            3 -> {
 
-            playAgain()
-
-
-        } else if (userMenuChoose == 2) {
-
-            result.showResult(
-                getFirstUser(),
-                user.getFirstUserChoice(vsHuman = false, vsBot = true),
-                computer.getRandomChoice()
-            )
-            playAgain()
-
-        } else if (userMenuChoose == 3) {
-
-            println("Thankyou for Playing!")
+                println("Thankyou for Playing!")
 
 
-        } else {
+            }
+            else -> {
 
-            menuOption()
-            gameFlow()
+                isFirst = true
+                gameFlow()
 
+            }
         }
 
 
@@ -76,13 +81,13 @@ class GameFlow : Game() {
 
         print("\nPlay again?(y/n) ")
 
-        var playMore = readln().lowercase()
+        val playMore = readln().lowercase()
 
         if (playMore == "n" || playMore == "no") {
 
             print("Back to main menu?(y/n) ")
 
-            var backToMain = readln().lowercase()
+            val backToMain = readln().lowercase()
 
             if (backToMain == "n" || backToMain == "no") {
 

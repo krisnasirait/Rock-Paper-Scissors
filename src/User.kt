@@ -4,7 +4,7 @@ class User {
 
         val computer = Computer()
 
-        print("Input your choice : ")
+        print("Input your choice (1st Player) : ")
 
         //error handling number exception
         try {
@@ -18,9 +18,7 @@ class User {
 
             } else if (vsHuman && !vsBot) {
 
-                var choosenFirstUser = readln()
-
-                return choosenFirstUser
+                return readln()
             }
         } catch (e: NumberFormatException) {
 
@@ -37,9 +35,7 @@ class User {
 
         try {
 
-            var choosenSecondUser = readln()
-
-            return choosenSecondUser
+            return readln()
 
         } catch (e: NumberFormatException) {
 
