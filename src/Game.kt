@@ -22,7 +22,7 @@ abstract class Game : Player {
 
     fun getSecondUser(): String {
         if (nameSecondUser == "") {
-            print("\nInput your name (2nd Player) : ")
+            print("Input your name (2nd Player) : ")
             val secondUserName = readln()
             nameSecondUser = secondUserName
             if (nameSecondUser.contains(" ")) {

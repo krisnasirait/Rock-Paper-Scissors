@@ -16,7 +16,7 @@ class ResultService constructor(private var userChoice: String, private var botC
     }
 
     fun showResult(firstUserName: String, secondUserName: String = "Bot", result: Int) {
-        println("======Result=====")
+        println("\n========RESULT=========")
         if (result > 0) {
             println("$firstUserName WIN")
         } else if (result < 0) {
