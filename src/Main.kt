@@ -1,5 +1,3 @@
-
-
 class GameFlow : Game() {
 
     private var init: Boolean = true
@@ -11,7 +9,6 @@ class GameFlow : Game() {
     fun gameFlow() {
 
         val user = User()
-        val result = Result()
         val computer = Computer()
 
         while (init) {
@@ -28,19 +25,21 @@ class GameFlow : Game() {
                 getFirstUser()
                 getSecondUser()
                 secondPlayerPseudonym = nameSecondUser
-                val gameResult = result.getResult(user.getUserChoice("1st player"), user.getUserChoice("2nd player"))
+                val resultService = ResultService(user.getUserChoice("1st player"), user.getUserChoice("2nd player"))
+                val gameResult = resultService.getResult()
                 storeGameResult(gameResult)
-                result.showResult(getFirstUser(), getSecondUser(), result = gameResult)
+                resultService.showResult(getFirstUser(), getSecondUser(), result = gameResult)
                 playAgain()
             }
             2 -> {
                 secondPlayerPseudonym = "Computer"
                 val botChoice = computer.getRandomChoice()
                 getFirstUser()
-                val gameResult = result.getResult(user.getUserChoice("1st player"), botChoice)
+                val resultService = ResultService(user.getUserChoice("1st player"), botChoice)
+                val gameResult = resultService.getResult()
                 println("Bot : $botChoice")
                 storeGameResult(gameResult)
-                result.showResult(getFirstUser(), result = gameResult)
+                resultService.showResult(getFirstUser(), result = gameResult)
                 playAgain()
             }
             3 -> {
