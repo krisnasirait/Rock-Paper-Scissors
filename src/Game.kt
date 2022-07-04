@@ -9,7 +9,7 @@ abstract class Game : Player {
     fun getFirstUser(): String {
         if (nameFirstUser == "") {
             //read user name input
-            print("\nInput your name : ")
+            print("\nInput your name (1st Player) : ")
             val firstUserName = readln()
             nameFirstUser = firstUserName
             //error handling input contain spaces (" ")
@@ -22,7 +22,7 @@ abstract class Game : Player {
 
     fun getSecondUser(): String {
         if (nameSecondUser == "") {
-            print("\nInput your name : ")
+            print("\nInput your name (2nd Player) : ")
             val secondUserName = readln()
             nameSecondUser = secondUserName
             if (nameSecondUser.contains(" ")) {

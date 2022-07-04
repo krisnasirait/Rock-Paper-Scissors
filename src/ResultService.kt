@@ -1,6 +1,6 @@
-class Result {
+class ResultService constructor(private var userChoice: String, private var botChoice: String) {
 
-    fun getResult(userChoice: String, botChoice: String): Int {
+    fun getResult(): Int {
         if (userChoice.equals(botChoice, true)) {
             return 0
         } else if (userChoice.equals("Rock", true) && botChoice.equals("Scissors", true)
@@ -15,7 +15,7 @@ class Result {
         throw IllegalArgumentException("Can't declare the result")
     }
 
-    fun showResult(firstUserName: String, secondUserName: String = "Computer", result: Int) {
+    fun showResult(firstUserName: String, secondUserName: String = "Bot", result: Int) {
         println("======Result=====")
         if (result > 0) {
             println("$firstUserName WIN")
