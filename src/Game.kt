@@ -1,9 +1,5 @@
-
 abstract class Game : Player {
-
-    private var isFirst: Boolean = true
-
-    companion object{
+    companion object {
         var nameFirstUser: String = ""
         var nameSecondUser: String = ""
     }
@@ -11,41 +7,30 @@ abstract class Game : Player {
 
     //to receive the user name input
     fun getFirstUser(): String {
-        if (isFirst) {
-
-            isFirst = false
-
+        if (nameFirstUser == "") {
             //read user name input
             print("\nInput your name : ")
-
             val firstUserName = readln()
-
             nameFirstUser = firstUserName
-
             //error handling input contain spaces (" ")
             if (nameFirstUser.contains(" ")) {
                 println("\nPlease input without spaces")
             }
-
         }
         return nameFirstUser
     }
 
     fun getSecondUser(): String {
-
-        print("\nInput your name : ")
-
-        val secondUserName = readln()
-
-        nameSecondUser = secondUserName
-
-        if(nameSecondUser.contains(" ")){
-            println("\nPlease input without spaces")
+        if (nameSecondUser == "") {
+            println("\nInput your name : ")
+            val secondUserName = readln()
+            nameSecondUser = secondUserName
+            if (nameSecondUser.contains(" ")) {
+                println("Please input without spaces")
+            }
         }
-
         return nameSecondUser
     }
-
 
 
 }
