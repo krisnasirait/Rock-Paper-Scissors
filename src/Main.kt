@@ -3,11 +3,10 @@
 class GameFlow : Game() {
 
     private var init: Boolean = true
-    private var vsHumanFirst: Boolean = true
     private var userMenuChoose: Int = 0
     private var firstPlayerScore: Int = 0
     private var secondPlayerScore: Int = 0
-    private var secondPlayerPseudonim: String = "";
+    private var secondPlayerPseudonym: String = ""
 
     fun gameFlow() {
 
@@ -17,6 +16,7 @@ class GameFlow : Game() {
 
         while (init) {
             init = false
+            resetData()
             menuBanner()
             menuOption()
             val userChoose = readln().toInt()
@@ -25,16 +25,16 @@ class GameFlow : Game() {
 
         when (userMenuChoose) {
             1 -> {
-                secondPlayerPseudonim = "User 2"
                 getFirstUser()
                 getSecondUser()
+                secondPlayerPseudonym = nameSecondUser
                 val gameResult = result.getResult(user.getUserChoice("1st player"), user.getUserChoice("2nd player"))
                 storeGameResult(gameResult)
                 result.showResult(getFirstUser(), getSecondUser(), result = gameResult)
                 playAgain()
             }
             2 -> {
-                secondPlayerPseudonim = "Computer"
+                secondPlayerPseudonym = "Computer"
                 val botChoice = computer.getRandomChoice()
                 getFirstUser()
                 val gameResult = result.getResult(user.getUserChoice("1st player"), botChoice)
@@ -53,10 +53,17 @@ class GameFlow : Game() {
         }
     }
 
+    private fun resetData() {
+        firstPlayerScore = 0
+        secondPlayerScore = 0
+        nameFirstUser = ""
+        nameSecondUser = ""
+    }
+
     override fun playAgain() {
         println("\nScore:")
-        println("User 1: $firstPlayerScore")
-        println("$secondPlayerPseudonim: $secondPlayerScore")
+        println("$nameFirstUser: $firstPlayerScore")
+        println("$secondPlayerPseudonym: $secondPlayerScore")
         print("\nPlay again?(y/n) ")
         val playMore = readln().lowercase()
         if (playMore == "n" || playMore == "no") {

@@ -15,7 +15,7 @@ class Result {
         throw IllegalArgumentException("Can't declare the result")
     }
 
-    fun showResult(firstUserName: String, secondUserName: String = "Bot", result: Int) {
+    fun showResult(firstUserName: String, secondUserName: String = "Computer", result: Int) {
         println("======Result=====")
         if (result > 0) {
             println("$firstUserName WIN")
